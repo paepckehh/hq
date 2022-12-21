@@ -2,11 +2,12 @@
 
 [paepche.de/hq](https://paepcke.de/hq)
 
--   keys and signatures based on a sphincs256-blake3 hash based hypertree
--   no new 'wild' post-quantum security assumtions needed, hash based signatures are well studied for decades (see NIST pq shootout)
--   optional: no private key \[export|handling|storage\] needed, secured via passphrases cube token kdf
--   standard-cryptography-project-disclaimer: project security confidence will and need to grow over time with external reviews
--   100 % pure go, minimal external imports, usable as app and exported as easy-to-use library/api, see api.go
+-   keys and signatures based on a sphincs-blake3-512
+-   no new 'wild' post-quantum security assumtions needed
+-   hash based signatures are well studied for decades (see NIST pq shootout)
+-   optional: no private key \[export|handling|storage\] (password based)
+-   crypto-project-disclaimer: project security confidence will grow over time 
+-   100 % pure go, minimal external imports, usable as app or api, see api.go
 
 ## Install 
 ```
