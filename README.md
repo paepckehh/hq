@@ -9,12 +9,13 @@
 -   crypto-project-disclaimer: project security confidence will grow over time 
 -   100 % pure go, minimal external imports, usable as app or api, see api.go
 
-## Install 
+# INSTALL
+
 ```
 go install paepcke.de/hq/cmd/hq@latest
 ```
 
-# SHOWTIME BASIC
+# SHOWTIME 
 
 ## generate key pair \[hq identity\]
 
@@ -181,5 +182,10 @@ ENV
  HQ_OWNER                  set owner for generate operations [batch mode]
 ```
 
-# Dependencies
+# EXTERNAL RESOURCES 
+
 - special thanks to zeebo for the [blake3](https://github.com/zeebo/blake3) package! 
+
+# CONTRIBUTION
+
+Yes, Please! PRs Welcome! 
