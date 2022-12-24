@@ -7,8 +7,8 @@ require (
 	github.com/klauspost/cpuid/v2 v2.2.2
 	golang.org/x/crypto v0.4.0
 	golang.org/x/term v0.3.0
-	paepcke.de/codereview v0.0.0-20221222070809-e97a2d8407e9
-	paepcke.de/signify v0.0.0-20221222070952-23099544db20
+	paepcke.de/codereview v0.0.0-20221224074218-8e4884b77f5e
+	paepcke.de/signify v0.0.0-20221224074608-8f7e8c94921c
 	paepcke.de/sphincs v0.0.0-20221222070959-2c15e8ef2253
 )
 
