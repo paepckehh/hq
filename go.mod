@@ -1,15 +1,15 @@
 module paepcke.de/hq
 
-go 1.18
+go 1.20
 
 require (
 	github.com/klauspost/compress v1.15.13
 	github.com/klauspost/cpuid/v2 v2.2.2
 	golang.org/x/crypto v0.4.0
 	golang.org/x/term v0.3.0
-	paepcke.de/codereview v0.0.0-20221220165349-8affac083a5a
-	paepcke.de/signify v0.0.0-20221220090736-50d584e17746
-	paepcke.de/sphincs v0.0.0-20221220141751-af4f8040bdd3
+	paepcke.de/codereview v0.0.0-20221222070809-e97a2d8407e9
+	paepcke.de/signify v0.0.0-20221222070952-23099544db20
+	paepcke.de/sphincs v0.0.0-20221222070959-2c15e8ef2253
 )
 
 require (
