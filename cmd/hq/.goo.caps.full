@@ -1,8 +1,0 @@
-[/usr/store/dev/hq/cmd/hq]
-├── [cap]
-│   └── [security:medium:runtime]
-├── [stdlib]
-│   └── [runtime] -> [security:medium:runtime]
-├── [internal]
-└── [external]
-    └── [paepcke.de/cubetoken/cmd/cubetoken]
