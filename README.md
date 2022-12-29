@@ -6,7 +6,7 @@
 -   no new 'wild' post-quantum security assumtions needed
 -   hash based signatures are well studied for decades (see NIST pq shootout)
 -   optional: no private key \[export|handling|storage\] (password based)
--   crypto-project-disclaimer: project security confidence will grow over time 
+-   default-project-disclaimer: DO NOT USE IN SECURITY CRITIAL PRODUCTION YET
 -   100 % pure go, minimal external imports, usable as app or api, see api.go
 
 # INSTALL
@@ -184,7 +184,16 @@ ENV
 
 # EXTERNAL RESOURCES 
 
-- special thanks to zeebo for the [blake3](https://github.com/zeebo/blake3) package! 
+Special thanks goes to:
+
+* [sphincs.org](https://sphincs.org)
+* [sphincs.org/resources.html](https://sphincs.org/resources.html)
+* Daniel J. Bernstein, Andreas Huelsing, Stefan Koelbl, Ruben Niederhagen, Joost Rijnevel
+  and Peter Schwabe: The SPHINCS+ signature framework. 2019 ACM SIGSAC Conference on Computer
+  and Communications Security, CCS'19, ACM (2019), pp 2129–2146. Date: 2019-09-23 
+  [pdf] (https://cryptojedi.org/papers/spx-20190923.pdf)
+* [zeebo/blake3](https://github.com/zeebo/blake3) for the blazing fast blake3 golang implementation
+* [yawning/sphincs](https://github.com/yawning/sphincs256) for the sphincs256 (sha256) initial implementation
 
 # CONTRIBUTION
 
