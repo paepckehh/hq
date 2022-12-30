@@ -15,7 +15,7 @@
 go install paepcke.de/hq/cmd/hq@latest
 ```
 
-# DOWNLOAD (prebuild)
+### DOWNLOAD (prebuild)
 
 [github.com/paepckehh/hq/releases](https://github.com/paepckehh/hq/releases)
 
