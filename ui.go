@@ -1,12 +1,12 @@
 package hq
 
 import (
+	"encoding/base64"
 	"os"
 	"strconv"
 	"strings"
 	"syscall"
 	"time"
-	"encoding/base64"
 )
 
 var (

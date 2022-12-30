@@ -4,11 +4,11 @@ package hq
 // import
 import (
 	"encoding/base32"
+	"encoding/base64"
 	"os"
 	"strconv"
 	"strings"
 	"syscall"
-	"encoding/base64"
 
 	"paepcke.de/codereview"
 )
