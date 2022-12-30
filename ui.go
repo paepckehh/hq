@@ -6,8 +6,7 @@ import (
 	"strings"
 	"syscall"
 	"time"
-
-	base64 "paepcke.de/hq/b64"
+	"encoding/base64"
 )
 
 var (
@@ -125,11 +124,11 @@ func (id *HQ) reportPwd(c *Config) {
 	outPlain(yON + "# PASSWORD FOR SERVICE : " + c.PwdService)
 	if c.PwdComplex {
 		pwd := argon2d(id.IO.SIG[8192:], sha2(append([]byte(_hashKMAC), id.IO.SIG[:8192]...)))
-		out(" -> " + gON + string(base64.StdEncoding.EncodeToBytes(sha3(sha2(pwd)))[:32]))
+		out(" -> " + gON + base64.StdEncoding.EncodeToString(sha3(sha2(pwd)))[:32])
 		return
 	}
 	pwd := argon2d(id.IO.SIG[4096:], sha2(append([]byte(_hashKMAC), id.IO.SIG[:4096]...)))
-	out(" [legacy mode] -> " + gON + string(base64.StdEncoding.EncodeToBytes(sha2(sha3(pwd)))[:16]))
+	out(" [legacy mode] -> " + gON + base64.StdEncoding.EncodeToString(sha2(sha3(pwd)))[:16])
 }
 
 func (id *HQ) reportDir() {

@@ -8,9 +8,9 @@ import (
 	"strconv"
 	"strings"
 	"syscall"
+	"encoding/base64"
 
 	"paepcke.de/codereview"
-	base64 "paepcke.de/hq/b64"
 )
 
 // const
@@ -154,7 +154,7 @@ func (id *HQ) writeSig() {
 		sig = append(sig, id.IO.SCRIPT...)
 		id.IO.FileName = id.IO.FileName[:len(id.IO.FileName)-id.IO.ScriptExtL]
 	}
-	sig = base64.StdEncoding.EncodeToBytes(sig)
+	sig = []byte(base64.StdEncoding.EncodeToString(sig))
 	sig = multiSliceAppendSEP([]byte(_sheBang), prefix, id.ID.TAG[:], []byte(id.IO.TSS), sig)
 	if err := os.WriteFile(id.IO.FileName+ext, sig, 0o770); err != nil {
 		errExit("unable to write signature :" + id.IO.FileName + ext)
@@ -184,7 +184,7 @@ func (id *HQ) parseSig(c *Config) {
 	if _, err = strconv.ParseInt(string(id.IO.TSS), 10, 0); err != nil {
 		errExit("unable to parse timestamp")
 	}
-	if filesig, err = base64.StdEncoding.DecodeToBytes(filesig[69 : len(filesig)-1]); err != nil {
+	if filesig, err = base64.StdEncoding.DecodeString(string(filesig[69 : len(filesig)-1])); err != nil {
 		errExit("signature base64 decode error")
 	}
 	copy(id.IO.SIG[:], filesig)
@@ -211,7 +211,7 @@ func (id *HQ) writePublicKey() {
 		errExit("unable to create" + keystore)
 	}
 	filename := keystore + string(id.ID.TAG[:])
-	key := append(id.ID.OWNER[:], base64.StdEncoding.EncodeToBytes(id.ID.KEY[:])...)
+	key := append(id.ID.OWNER[:], []byte(base64.StdEncoding.EncodeToString(id.ID.KEY[:]))...)
 	writeFileErrExit(filename, key, 0o440)
 	if id.IO.SetMe {
 		_ = os.Remove(keystore + "me")
@@ -231,7 +231,7 @@ func (id *HQ) writeUnlockedKey() {
 		errExit("unable to create" + keystore)
 	}
 	filename := keystore + ".unlocked/" + string(id.ID.TAG[:])
-	writeFileErrExit(filename, base64.StdEncoding.EncodeToBytes(id.IO.PRIVKEY[:]), 0o400)
+	writeFileErrExit(filename, []byte(base64.StdEncoding.EncodeToString(id.IO.PRIVKEY[:])), 0o400)
 }
 
 // wipeUnlockedKey ...
@@ -265,11 +265,12 @@ func (id *HQ) readUnlockedKey() {
 	if err != nil {
 		return
 	}
-	if key, err = base64.StdEncoding.DecodeToBytes(key); err != nil {
+	s, err := base64.StdEncoding.DecodeString(string(key))
+	if err != nil {
 		errOut("unable to decode unlocked key [" + filename + "]")
 		return
 	}
-	copy(id.IO.PRIVKEY[:], key)
+	copy(id.IO.PRIVKEY[:], []byte(s))
 	id.IO.UnlockedKey = true
 }
 
@@ -291,7 +292,7 @@ func (id *HQ) readPublicKey(nametag string) {
 	}
 	key = readFileErrExit(keystore + nametag)
 	copy(id.ID.OWNER[:], key)
-	if k, err = base64.StdEncoding.DecodeToBytes(key[64:]); err != nil {
+	if k, err = base64.StdEncoding.DecodeString(string(key[64:])); err != nil {
 		errExit("unable to decode key, base64 key part is defect" + keystore + string(id.ID.TAG[:]))
 	}
 	copy(id.ID.KEY[:], k)
