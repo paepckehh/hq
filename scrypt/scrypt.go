@@ -5,7 +5,7 @@
 // Package scrypt implements the scrypt key derivation function as defined in
 // Colin Percival's paper "Stronger Key Derivation via Sequential Memory-Hard
 // Functions" (https://www.tarsnap.com/scrypt/scrypt.pdf).
-package scrypt // import "golang.org/x/crypto/scrypt"
+package scrypt 
 
 import (
 	"crypto/sha256"
@@ -143,35 +143,35 @@ func integer(b []uint32, r int) uint64 {
 	return uint64(b[j]) | uint64(b[j+1])<<32
 }
 
-func smix(b []byte, r, N int, v, xy []uint32) {
+func smix(b []byte, r, nn int, v, xy []uint32) {
 	var tmp [16]uint32
-	R := 32 * r
+	rr := 32 * r
 	x := xy
-	y := xy[R:]
+	y := xy[rr:]
 
 	j := 0
-	for i := 0; i < R; i++ {
+	for i := 0; i < rr; i++ {
 		x[i] = binary.LittleEndian.Uint32(b[j:])
 		j += 4
 	}
-	for i := 0; i < N; i += 2 {
-		blockCopy(v[i*R:], x, R)
+	for i := 0; i < nn; i += 2 {
+		blockCopy(v[i*rr:], x, rr)
 		blockMix(&tmp, x, y, r)
 
-		blockCopy(v[(i+1)*R:], y, R)
+		blockCopy(v[(i+1)*rr:], y, rr)
 		blockMix(&tmp, y, x, r)
 	}
-	for i := 0; i < N; i += 2 {
-		j := int(integer(x, r) & uint64(N-1))
-		blockXOR(x, v[j*R:], R)
+	for i := 0; i < nn; i += 2 {
+		j := int(integer(x, r) & uint64(nn-1))
+		blockXOR(x, v[j*rr:], rr)
 		blockMix(&tmp, x, y, r)
 
-		j = int(integer(y, r) & uint64(N-1))
-		blockXOR(y, v[j*R:], R)
+		j = int(integer(y, r) & uint64(nn-1))
+		blockXOR(y, v[j*rr:], rr)
 		blockMix(&tmp, y, x, r)
 	}
 	j = 0
-	for _, v := range x[:R] {
+	for _, v := range x[:rr] {
 		binary.LittleEndian.PutUint32(b[j:], v)
 		j += 4
 	}
@@ -180,7 +180,7 @@ func smix(b []byte, r, N int, v, xy []uint32) {
 // Key derives a key from the password, salt, and cost parameters, returning
 // a byte slice of length keyLen that can be used as cryptographic key.
 //
-// N is a CPU/memory cost parameter, which must be a power of two greater than 1.
+// nn is a CPU/memory cost parameter, which must be a power of two greater than 1.
 // r and p must satisfy r * p < 2³⁰. If the parameters do not satisfy the
 // limits, the function returns a nil byte slice and an error.
 //
@@ -193,26 +193,26 @@ func smix(b []byte, r, N int, v, xy []uint32) {
 // and p=1. The parameters N, r, and p should be increased as memory latency and
 // CPU parallelism increases; consider setting N to the highest power of 2 you
 // can derive within 100 milliseconds. Remember to get a good random salt.
-func Key(password, salt []byte, N, r, p, keyLen int) ([]byte, error) {
-	return NewKey(password, salt, N, r, p, keyLen, sha256.New)
+func Key(password, salt []byte, nn, r, p, keyLen int) ([]byte, error) {
+	return NewKey(password, salt, nn, r, p, keyLen, sha256.New)
 }
 
 // NewKey derives a key from the password, salt, and cost parameters and hash.Hash function,
 // returning a byte slice of length keyLen that can be used as cryptographic key.
-func NewKey(password, salt []byte, N, r, p, keyLen int, h func() hash.Hash) ([]byte, error) {
-	if N <= 1 || N&(N-1) != 0 {
+func NewKey(password, salt []byte, nn, r, p, keyLen int, h func() hash.Hash) ([]byte, error) {
+	if nn <= 1 || nn&(nn-1) != 0 {
 		return nil, errors.New("scrypt: N must be > 1 and a power of 2")
 	}
-	if uint64(r)*uint64(p) >= 1<<30 || r > maxInt/128/p || r > maxInt/256 || N > maxInt/128/r {
+	if uint64(r)*uint64(p) >= 1<<30 || r > maxInt/128/p || r > maxInt/256 || nn > maxInt/128/r {
 		return nil, errors.New("scrypt: parameters are too large")
 	}
 
 	xy := make([]uint32, 64*r)
-	v := make([]uint32, 32*N*r)
+	v := make([]uint32, 32*nn*r)
 	b := pbkdf2.Key(password, salt, 1, p*128*r, h)
 
 	for i := 0; i < p; i++ {
-		smix(b[i*128*r:], r, N, v, xy)
+		smix(b[i*128*r:], r, nn, v, xy)
 	}
 
 	return pbkdf2.Key(password, b, 1, keyLen, h), nil
