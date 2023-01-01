@@ -118,7 +118,7 @@ func help() {
 
 func (id *HQ) reportPwd(c *Config) {
 	if id.IO.ColorUI {
-		gON, yON, cOFF = _AlertG, _Yelllow, _Off
+		gON, yON, cOFF = _Green, _Yelllow, _Off
 	}
 	defer outPlain(cOFF)
 	outPlain(yON + "# PASSWORD FOR SERVICE : " + c.PwdService)
@@ -142,7 +142,7 @@ func (id *HQ) reportDir() {
 		}
 	}
 	if id.IO.ColorUI {
-		aON, rON, bON, gON, eON, cOFF = _Alert, _Alert, _Blue, _Green, _Grey, _Off
+		aON, rON, bON, gON, eON, cOFF = _Red, _Red, _Blue, _Green, _Grey, _Off
 		files, ffail, fok, total = _Files, _Ffail, _Fok, _Total
 		defer outPlain(cOFF)
 		if id.IO.FilesFail == 0 {
@@ -251,7 +251,7 @@ func passEntryHash(name string, masked, repeat bool) [64]byte {
 
 func errOut(m string) {
 	if getColorUI() {
-		aON, cOFF = _Alert, _Off
+		aON, cOFF = _Red, _Off
 	}
 	out(aON + "ERROR: " + m + cOFF)
 }
@@ -264,7 +264,7 @@ func errExit(m string) {
 func errsyntax(m string) {
 	if m != "" {
 		if getColorUI() {
-			aON, cOFF = _Alert, _Off
+			aON, cOFF = _Red, _Off
 		}
 		out(aON + "ERROR: " + m + cOFF)
 	}
@@ -282,21 +282,20 @@ const (
 	_envNoColor = "NO_COLOR"
 	// basic ansi terminal color definitions
 	_Off     = "\033[0m"
-	_Green   = "\033[2;32m"
-	_Yelllow = "\033[2;33m"
-	_Blue    = "\033[2;34m"
-	_Magenta = "\033[2;35m"
-	_Cyan    = "\033[2;36m"
-	_White   = "\033[2;37m"
-	_Grey    = "\033[2;90m"
-	_Alert   = "\033[1;31m"
-	_AlertG  = "\033[1;32m"
+	_Grey    = "\033[0m"
+	_Red     = "\033[1;91m"
+	_Green   = "\033[2;92m"
+	_Yelllow = "\033[2;93m"
+	_Blue    = "\033[2;94m"
+	_Magenta = "\033[2;95m"
+	_Cyan    = "\033[2;96m"
+	_White   = "\033[2;97m"
 
 	// ui defaults
-	_Valid     = _AlertG + _valid + _Off
-	_Fail      = _Alert + _fail + _Off
-	_Lock      = _AlertG + _lock + _Off
-	_Unlock    = _AlertG + _unlock + _Off
+	_Valid     = _Green + _valid + _Off
+	_Fail      = _Red + _fail + _Off
+	_Lock      = _Green + _lock + _Off
+	_Unlock    = _Green + _unlock + _Off
 	_Total     = _Yelllow + _total + _Off
 	_Owner     = _Yelllow + _owner + _Off
 	_Signifyid = _Yelllow + _signifyid + _Off

@@ -253,7 +253,7 @@ func verifyMap(id *HQ) (filesTotal, filesFail, filesNew uint64) {
 
 	// collect chanFail
 	if id.IO.ColorUI {
-		aON, bON, cON, gON, cOFF = _Alert, _Blue, _Cyan, _AlertG, _Off
+		aON, bON, cON, gON, cOFF = _Red, _Blue, _Cyan, _Green, _Off
 		file, errc, exp, calc, cexp, ccalc = _File, _Errc, _Exp, _Calc, _Cexp, _Ccalc
 	}
 	for t := range chanFail {
