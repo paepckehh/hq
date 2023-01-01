@@ -5,9 +5,9 @@ before:
     - go install mvdan.cc/garble@latest
 builds:
   -
-    id: "codereview"
-    binary: codereview
-    main: ./cmd/codereview/main.go
+    id: "hq"
+    binary: hq
+    main: ./cmd/hq/main.go
     env:
       - CGO_ENABLED=0
     goos:
@@ -24,8 +24,8 @@ builds:
     gobinary: garble
 archives:
   -
-    id: codereview-binaries
-    name_template: "codereview-{{ .Os }}_{{ .Arch }}_{{ .Version }}"
+    id: hq-binaries
+    name_template: "hq-{{ .Os }}_{{ .Arch }}_{{ .Version }}"
     files:
       - LICENSE.md
       - README.md
@@ -39,11 +39,11 @@ changelog:
     exclude:
 nfpms:
   -
-    file_name_template: "codereview_package_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    file_name_template: "hq_package_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
     vendor: Michael Paepcke
-    homepage: https://paepcke.de/codereview
+    homepage: https://paepcke.de/hq
     maintainer: Michael Paepcke <git@paepcke.de>
-    description: codereview
+    description: hq
     license: BSD 3-Clause
     formats:
       - deb
