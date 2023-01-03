@@ -46,6 +46,7 @@ func getRune() byte {
 	if oldState, err := term.MakeRaw(0); err != nil {
 		panic(err)
 	} else {
+		//nolint:all - there is no alternative/reporting if this fails
 		defer term.Restore(0, oldState)
 	}
 	var buf [1]byte

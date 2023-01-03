@@ -12,16 +12,6 @@ import (
 // Display IO
 //
 
-// out ...
-func out(msg string) {
-	os.Stdout.Write([]byte(msg + "\n"))
-}
-
-// outPlain ...
-func outPlain(msg string) {
-	os.Stdout.Write([]byte(msg))
-}
-
 // outSlice ...
 func outSlice(msg []byte) {
 	os.Stdout.Write(msg)

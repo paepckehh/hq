@@ -15,9 +15,6 @@ import (
 	"paepcke.de/sphincs"
 )
 
-// const
-const _hashBlockSize = 1024 * 32
-
 // sphincs seed
 func sphincsSeed(message, kmac []byte) (r [sphincs.SeedTokenSize]byte) {
 	data := kmac
@@ -54,23 +51,9 @@ func blake3fi(in []byte) [64]byte {
 	return blake3f.Sum512(in)
 }
 
-// generic simple sha512/sha3-512 sandwich wrap
-func hashWrap512(in []byte) [64]byte {
-	h := sha512.Sum512(in)
-	return sha3f.Sum512(h[:])
-}
-
-// generic simple sha512/sha3-256 sandwich wrap slice
-func hashWrap256S(in []byte) []byte {
-	h := sha512.Sum512(in)
-	hsum := sha3f.Sum256(h[:])
-	return hsum[:]
-}
-
 // preconfigured simplified api compatible/exchangeable[input/output] functions (alphabetical)
 func sha2(message []byte) []byte     { return sha2E(message, nil, 512) }
 func sha3(message []byte) []byte     { return sha3E(message, nil, 512) }
-func shake128(message []byte) []byte { return shake128E(message, nil, 512) }
 func shake256(message []byte) []byte { return shake256E(message, nil, 512) }
 func blake2b(message []byte) []byte  { return blake2bE(message, nil, 512) }
 func blake3(message []byte) []byte   { return blake3E(message, nil, 512) }
@@ -157,30 +140,6 @@ func blake2bE(message, hmac []byte, size int) []byte {
 		return t[64:]
 	}
 	panic("HASH SIZE ERROR [Blake2b]")
-}
-
-func shake128E(message, kmac []byte, size int) []byte {
-	data := kmac
-	data = append(data, message...)
-	switch size {
-	case 224:
-		t := make([]byte, 28)
-		sha3f.ShakeSum128(t, data)
-		return t
-	case 256:
-		t := make([]byte, 32)
-		sha3f.ShakeSum128(t, data)
-		return t
-	case 512:
-		t := make([]byte, 64)
-		sha3f.ShakeSum128(t, data)
-		return t
-	case 65536:
-		t := make([]byte, 8192)
-		sha3f.ShakeSum128(t, data)
-		return t
-	}
-	panic("HASH SIZE ERROR [Shake128]")
 }
 
 func shake256E(message, kmac []byte, size int) []byte {

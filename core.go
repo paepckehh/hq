@@ -362,7 +362,9 @@ func cleanMapFiles(path string) {
 		case len(name) < 39:
 			continue
 		case name[:6] == ".hqMAP":
-			syscall.Unlink(path + "/" + name)
+			if err := syscall.Unlink(path + "/" + name); err != nil {
+				errOut("unlik fail" + name + " " + err.Error())
+			}
 		}
 	}
 }

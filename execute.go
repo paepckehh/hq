@@ -42,8 +42,12 @@ func (id *HQ) runExec() bool {
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Stdin = os.Stdin
-	cmd.Start()
-	cmd.Wait()
+	if err := cmd.Start(); err != nil {
+		return false
+	}
+	if err = cmd.Wait(); err != nil {
+		return false
+	}
 	return true
 }
 
