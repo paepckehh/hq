@@ -19,13 +19,6 @@ func setByte64(in []byte) [64]byte {
 	return fixed
 }
 
-func multiSliceAppend(in ...[]byte) (out []byte) {
-	for _, t := range in {
-		out = append(out, t...)
-	}
-	return out
-}
-
 func multiSliceAppendSEP(in ...[]byte) (out []byte) {
 	for _, t := range in {
 		out = append(out, t...)

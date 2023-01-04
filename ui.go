@@ -7,6 +7,8 @@ import (
 	"strings"
 	"syscall"
 	"time"
+
+	"golang.org/x/crypto/argon2"
 )
 
 var (
@@ -330,4 +332,12 @@ func getColorUI() bool {
 		return false
 	}
 	return true
+}
+
+//
+// LITTLE HELPER
+//
+
+func argon2d(p, s []byte) []byte {
+	return argon2.Key(p, s, 5, uint32(_memlimit), uint8(_parallel), 512)
 }
