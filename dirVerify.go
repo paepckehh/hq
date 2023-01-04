@@ -182,14 +182,15 @@ func verifyMap(id *HQ) (filesTotal, filesFail, filesNew uint64) {
 		r := decompressReadFile(id.IO.FileName[:len(id.IO.FileName)-4])
 		sizeMap := len(r)
 		var total uint64
-		filename, hash, chash, code := make([]byte, 0, 256), make([]byte, 0, 64), make([]byte, 0, 64), false
+		var hash string
+		filename, chash, code := make([]byte, 0, 256), make([]byte, 0, 64), false
 		for i := 0; i < sizeMap; i++ {
 			if r[i] == _linefeed {
 				if len(filename) == 0 {
 					continue
 				}
 				if i+1+64 < sizeMap && r[i+1] != _linefeed { // hash found
-					hash = r[i+1 : i+65]
+					hash = string(r[i+1 : i+65])
 					i += 64 + 1
 					if i+1+64 < sizeMap && r[i+1] != _linefeed { // optional chash detected
 						code = true
@@ -202,11 +203,11 @@ func verifyMap(id *HQ) (filesTotal, filesFail, filesNew uint64) {
 				}
 				chanFeed <- feed{
 					filename: string(filename),
-					hash:     string(hash),
+					hash:     hash,
 					chash:    string(chash),
 					code:     code,
 				}
-				filename, hash, chash, code = nil, nil, nil, false
+				filename, hash, chash, code = nil, "", nil, false
 				total++
 				continue
 			}

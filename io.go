@@ -32,11 +32,6 @@ func outPlain(msg string) {
 	os.Stdout.Write([]byte(msg))
 }
 
-// outSlice ...
-func outSlice(msg []byte) {
-	os.Stdout.Write(msg)
-}
-
 //
 // KEYBOARD IO SECTION
 //
@@ -197,10 +192,10 @@ func writeFileErrExit(filename string, data []byte, filemode fs.FileMode) {
 		errExit("unable to write file [" + filename + "]" + "[" + err.Error() + "]")
 	}
 	f, err := os.Open(filename)
-	defer f.Close()
 	if err != nil {
 		errExit("unable to [sync|verify] file on disk status [" + filename + "]" + "[" + err.Error() + "]")
 	}
+	defer f.Close()
 	err = f.Sync()
 	if err != nil {
 		errExit("unable to sync file to disk [" + filename + "]" + "[" + err.Error() + "]")
