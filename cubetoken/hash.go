@@ -46,17 +46,11 @@ func blake3New512() hash.Hash {
 	return blake3f.New512()
 }
 
-// blake3fi fixed [64]byte return
-func blake3fi(in []byte) [64]byte {
-	return blake3f.Sum512(in)
-}
-
 // preconfigured simplified api compatible/exchangeable[input/output] functions (alphabetical)
-func sha2(message []byte) []byte     { return sha2E(message, nil, 512) }
-func sha3(message []byte) []byte     { return sha3E(message, nil, 512) }
-func shake256(message []byte) []byte { return shake256E(message, nil, 512) }
-func blake2b(message []byte) []byte  { return blake2bE(message, nil, 512) }
-func blake3(message []byte) []byte   { return blake3E(message, nil, 512) }
+func sha2(message []byte) []byte    { return sha2E(message, nil, 512) }
+func sha3(message []byte) []byte    { return sha3E(message, nil, 512) }
+func blake2b(message []byte) []byte { return blake2bE(message, nil, 512) }
+func blake3(message []byte) []byte  { return blake3E(message, nil, 512) }
 
 //
 // [E]xtended interfaces

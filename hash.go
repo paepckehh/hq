@@ -44,12 +44,6 @@ func getMSGHash(filename string) [HashSize]byte {
 	return setByte64(h.Sum(nil))
 }
 
-// blake2bWNew512 is a wrapper
-func blake2bNew512() hash.Hash {
-	t, _ := blake2bf.New512(nil)
-	return t
-}
-
 // blake3New256 wrapper
 func blake3New256() hash.Hash {
 	return blake3f.New()
@@ -84,12 +78,10 @@ func hashWrap256S(in []byte) []byte {
 }
 
 // preconfigured simplified api compatible/exchangeable[input/output] functions (alphabetical)
-func sha2(message []byte) []byte     { return sha2E(message, nil, 512) }
-func sha3(message []byte) []byte     { return sha3E(message, nil, 512) }
-func shake128(message []byte) []byte { return shake128E(message, nil, 512) }
-func shake256(message []byte) []byte { return shake256E(message, nil, 512) }
-func blake2b(message []byte) []byte  { return blake2bE(message, nil, 512) }
-func blake3(message []byte) []byte   { return blake3E(message, nil, 512) }
+func sha2(message []byte) []byte    { return sha2E(message, nil, 512) }
+func sha3(message []byte) []byte    { return sha3E(message, nil, 512) }
+func blake2b(message []byte) []byte { return blake2bE(message, nil, 512) }
+func blake3(message []byte) []byte  { return blake3E(message, nil, 512) }
 
 //
 // [E]xtended interfaces
