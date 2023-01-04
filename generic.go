@@ -14,6 +14,7 @@ func setByte64(in []byte) [64]byte {
 	}
 	fixed := [64]byte{}
 	for i := range in {
+		//nolint:all todo: clarify gc impact of copy(), refactor src around instead
 		fixed[i] = in[i]
 	}
 	return fixed

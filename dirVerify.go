@@ -207,7 +207,7 @@ func verifyMap(id *HQ) (filesTotal, filesFail, filesNew uint64) {
 					chash:    string(chash),
 					code:     code,
 				}
-				filename, hash, chash, code = nil, "", nil, false
+				filename, chash, code = nil, nil, false
 				total++
 				continue
 			}
