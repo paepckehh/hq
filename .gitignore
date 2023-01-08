@@ -21,3 +21,5 @@
 Makefile
 doc
 vendor
+hq
+cmd/hq/hq
