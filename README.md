@@ -199,6 +199,10 @@ Special thanks goes to:
 * [zeebo/blake3](https://github.com/zeebo/blake3) [CC0] for the blazing fast blake3 golang implementation
 * [yawning/sphincs](https://github.com/yawning/sphincs256) [BSD3] for the sphincs256 (sha256) initial implementation
 
+# DOCS
+
+[pkg.go.dev/paepcke.de/hq](https://pkg.go.dev/paepcke.de/hq)
+
 # CONTRIBUTION
 
 Yes, Please! PRs Welcome! 
