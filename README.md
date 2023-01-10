@@ -1,6 +1,6 @@
 # OVERVIEW 
 
-[paepche.de/hq](https://paepcke.de/hq)
+[paepche.de/hq](https://paepcke.de/hq/)
 
 -   keys and signatures based on a sphincs-blake3-512
 -   no new 'wild' post-quantum security assumtions needed
