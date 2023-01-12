@@ -1,7 +1,5 @@
-// package hq ...
 package hq
 
-// import
 import (
 	"strconv"
 	"strings"

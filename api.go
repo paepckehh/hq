@@ -1,4 +1,4 @@
-// Package hq ...
+// Package hq implements sphincs-blake3-512 hypertree signatures
 package hq
 
 import (

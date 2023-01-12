@@ -1,7 +1,5 @@
-// package hq ...
 package hq
 
-// import
 import (
 	"io"
 	"os"
