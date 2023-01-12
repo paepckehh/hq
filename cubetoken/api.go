@@ -1,7 +1,6 @@
-// Package cubetoken provides and [complex] [multi-] input to hash KDF [key derivation function]
+// Package cubetoken provides a complex KDF function
 package cubetoken
 
-// import
 import (
 	"paepcke.de/signify"
 	"paepcke.de/sphincs"

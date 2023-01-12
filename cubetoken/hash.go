@@ -1,4 +1,3 @@
-// package cubetoken
 package cubetoken
 
 // import

@@ -1,7 +1,5 @@
-// package cubetoken
 package cubetoken
 
-// import
 import (
 	"os"
 	"sync"
