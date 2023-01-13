@@ -56,7 +56,7 @@ const (
 	_envNoColor = "NO_COLOR"
 	// basic ansi terminal color definitions
 	_off  = "\033[0m"
-	_blue = "\033[2;34m"
+	_blue = "\033[2;94m"
 )
 
 // getColorUI ...

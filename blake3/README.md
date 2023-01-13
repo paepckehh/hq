@@ -1,4 +1,5 @@
 ( temporary fork, waiting for upstream hash.Hash interface feature add )
+( PR request open, see github.com/zeebo/blake3/pull/25 )
 
 # BLAKE3
 
