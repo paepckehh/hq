@@ -197,7 +197,7 @@ Special thanks goes to:
   and Communications Security, CCS'19, ACM (2019), pp 2129–2146. Date: 2019-09-23 
   [pdf] (https://cryptojedi.org/papers/spx-20190923.pdf)
 * [zeebo/blake3](https://github.com/zeebo/blake3) [CC0] for the blazing fast blake3 golang implementation
-* [yawning/sphincs](https://github.com/yawning/sphincs256) [BSD3] for the sphincs256 (sha256) initial implementation
+* [yawning/sphincs](https://github.com/yawning/sphincs256) [BSD3] for the sphincs256 init implementation
 
 # DOCS
 
