@@ -1,5 +1,5 @@
 # OVERVIEW 
-[![Go Report Card](https://goreportcard.com/badge/paepcke.de/hq)](https://goreportcard.com/report/paepcke.de/hq)
+[![Go Reference](https://pkg.go.dev/badge/paepcke.de/hq.svg)](https://pkg.go.dev/paepcke.de/hq) [![Go Report Card](https://goreportcard.com/badge/paepcke.de/hq)](https://goreportcard.com/report/paepcke.de/hq)
 
 [paepche.de/hq](https://paepcke.de/hq/)
 
