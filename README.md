@@ -206,3 +206,4 @@ Special thanks goes to:
 # CONTRIBUTION
 
 Yes, Please! PRs Welcome! 
+https://goreportcard.com/report/paepcke.de/hq

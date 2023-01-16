@@ -148,7 +148,7 @@ func (id *HQ) writeSig() {
 		s := matchShebang(id.IO.TokenExec)
 		id.IO.TokenExec = s.token
 		if len(id.IO.TokenExec) != 6 {
-			errExit("unkown TokenExec")
+			errExit("unknown TokenExec")
 		}
 		ext, prefix = _extExecutable, []byte("#HQX#"+id.IO.TokenExec)
 		sig = append(sig, id.IO.SCRIPT...)
