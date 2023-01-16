@@ -1,6 +1,6 @@
 # OVERVIEW 
 
-[paepche.de/hq](https://paepcke.de/hq/)
+[paepche.de/hq](https://paepcke.de/hq/) [![Go Report Card](https://goreportcard.com/badge/paepcke.de/hq)](https://goreportcard.com/report/paepcke.de/hq)
 
 -   keys and signatures based on a sphincs-blake3-512
 -   no new 'wild' post-quantum security assumtions needed
@@ -206,4 +206,3 @@ Special thanks goes to:
 # CONTRIBUTION
 
 Yes, Please! PRs Welcome! 
-https://goreportcard.com/report/paepcke.de/hq
