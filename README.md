@@ -4,7 +4,7 @@
 [paepche.de/hq](https://paepcke.de/hq/)
 
 -   keys and signatures based on a sphincs-blake3-512
--   no new 'wild' post-quantum security assumtions needed
+-   no new post-quantum security assumtions needed
 -   hash based signatures are well studied for decades (see NIST pq shootout)
 -   optional: no private key \[export|handling|storage\] (password based)
 -   default-project-disclaimer: DO NOT USE IN SECURITY CRITIAL PRODUCTION YET
