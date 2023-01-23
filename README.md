@@ -7,7 +7,7 @@
 -   no new post-quantum security assumtions needed
 -   hash based signatures are well studied for decades (see NIST pq shootout)
 -   optional: no private key \[export|handling|storage\] (password based)
--   default-project-disclaimer: DO NOT USE IN SECURITY CRITIAL PRODUCTION YET
+-   default-project-disclaimer: DO NOT USE IN SECURITY CRITIAL PRODUCTION (YET)
 -   100 % pure go, minimal external imports, usable as app or api, see api.go
 
 # INSTALL
