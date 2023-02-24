@@ -1,7 +1,7 @@
 # OVERVIEW
 [![Go Reference](https://pkg.go.dev/badge/paepcke.de/hq.svg)](https://pkg.go.dev/paepcke.de/hq) [![Go Report Card](https://goreportcard.com/badge/paepcke.de/hq)](https://goreportcard.com/report/paepcke.de/hq) [![Go Build](https://github.com/paepckehh/hq/actions/workflows/golang.yml/badge.svg)](https://github.com/paepckehh/hq/actions/workflows/golang.yml)
 
-[paepche.de/hq](https://paepcke.de/hq/)
+[paepcke.de/hq](https://paepcke.de/hq/)
 
 -   keys and signatures based on a sphincs-blake3-512
 -   no new post-quantum security assumtions needed
