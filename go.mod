@@ -3,7 +3,7 @@ module paepcke.de/hq
 go 1.20
 
 require (
-	github.com/klauspost/compress v1.16.0
+	github.com/klauspost/compress v1.16.3
 	github.com/klauspost/cpuid/v2 v2.2.4
 	golang.org/x/crypto v0.7.0
 	golang.org/x/term v0.6.0
