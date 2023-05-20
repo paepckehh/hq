@@ -8,8 +8,8 @@ require (
 	golang.org/x/crypto v0.9.0
 	golang.org/x/term v0.8.0
 	paepcke.de/codereview v0.1.35
-	paepcke.de/signify v0.1.16
-	paepcke.de/sphincs v0.1.14
+	paepcke.de/signify v0.1.19
+	paepcke.de/sphincs v0.1.17
 )
 
 require (
