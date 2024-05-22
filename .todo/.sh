@@ -1,0 +1,1 @@
+/usr/store/git/.autoarchive/go-fumpt.git-deflate-tree.tar.zst
