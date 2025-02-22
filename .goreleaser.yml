@@ -21,7 +21,7 @@ archives:
     id: hq-binaries
     name_template: "hq-{{ .Os }}_{{ .Arch }}_{{ .Version }}"
     files:
-      - LICENSE.md
+      - LICENSE
       - README.md
 checksum:
   name_template: 'checksums.txt'
