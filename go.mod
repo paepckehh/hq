@@ -4,7 +4,7 @@ go 1.24.4
 
 require (
 	github.com/klauspost/compress v1.18.0
-	github.com/klauspost/cpuid/v2 v2.2.11
+	github.com/klauspost/cpuid/v2 v2.3.0
 	golang.org/x/crypto v0.40.0
 	golang.org/x/term v0.33.0
 	paepcke.de/codereview v0.1.51
