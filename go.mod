@@ -9,7 +9,7 @@ require (
 	golang.org/x/term v0.38.0
 	paepcke.de/codereview v0.1.53
 	paepcke.de/signify v0.1.28
-	paepcke.de/sphincs v0.1.26
+	paepcke.de/sphincs v0.1.28
 )
 
 require (
