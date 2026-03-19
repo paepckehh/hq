@@ -207,12 +207,12 @@ func (id *HQ) getSig(c *Config) []byte {
 // writePublicKey ...
 func (id *HQ) writePublicKey() {
 	keystore := getKeyStore()
-	if err := os.MkdirAll(keystore[:len(keystore)-1], 0o664); err != nil {
+	if err := os.MkdirAll(keystore[:len(keystore)-1], 0o700); err != nil {
 		errExit("unable to create" + keystore)
 	}
 	filename := keystore + string(id.ID.TAG[:])
 	key := append(id.ID.OWNER[:], []byte(base64.StdEncoding.EncodeToString(id.ID.KEY[:]))...)
-	writeFileErrExit(filename, key, 0o440)
+	writeFileErrExit(filename, key, 0o500)
 	if id.IO.SetMe {
 		_ = os.Remove(keystore + "me")
 		if err := os.Symlink(filename, keystore+"me"); err != nil {
@@ -227,7 +227,7 @@ func (id *HQ) writePublicKey() {
 // writeUnlockedKey ...
 func (id *HQ) writeUnlockedKey() {
 	keystore := getKeyStore()
-	if err := os.MkdirAll(keystore[:len(keystore)-1], 0o600); err != nil {
+	if err := os.MkdirAll(keystore[:len(keystore)-1], 0o700); err != nil {
 		errExit("unable to create" + keystore)
 	}
 	filename := keystore + ".unlocked/" + string(id.ID.TAG[:])
@@ -242,7 +242,7 @@ func (id *HQ) wipeUnlockedKey() bool {
 	for i := range blind {
 		blind[i] = '0' // simply zero-out, assume non-permanent, non-journaled,  memory-backend storage backend [eg. tmpfs]
 	}
-	writeFileErrExit(filename, blind[:], 0o660)
+	writeFileErrExit(filename, blind[:], 0o600)
 	os.Remove(filename)
 	id.readUnlockedKey()
 	if !id.IO.UnlockedKey {

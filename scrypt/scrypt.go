@@ -150,7 +150,7 @@ func smix(b []byte, r, nn int, v, xy []uint32) {
 	y := xy[rr:]
 
 	j := 0
-	for i := 0; i < rr; i++ {
+	for i := range rr {
 		x[i] = binary.LittleEndian.Uint32(b[j:])
 		j += 4
 	}
@@ -211,7 +211,7 @@ func NewKey(password, salt []byte, nn, r, p, keyLen int, h func() hash.Hash) ([]
 	v := make([]uint32, 32*nn*r)
 	b := pbkdf2.Key(password, salt, 1, p*128*r, h)
 
-	for i := 0; i < p; i++ {
+	for i := range p {
 		smix(b[i*128*r:], r, nn, v, xy)
 	}
 

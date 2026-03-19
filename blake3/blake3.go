@@ -152,7 +152,7 @@ type cvstack struct {
 }
 
 func (a *cvstack) pushN(l uint8, cv *chainVector, n int, flags uint32, key *[8]uint32) {
-	for i := 0; i < n; i++ {
+	for i := range n {
 		a.pushL(l, cv, i)
 		for a.bufn == 8 {
 			a.flush(flags, key)
@@ -182,7 +182,7 @@ func (a *cvstack) flush(flags uint32, key *[8]uint32) {
 	bufn, lvls := a.bufn, a.lvls
 	a.bufn, a.lvls = 0, [8]uint8{}
 
-	for i := 0; i < bufn; i++ {
+	for i := range bufn {
 		a.pushL(lvls[i]+1, &out, i)
 	}
 }

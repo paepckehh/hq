@@ -110,7 +110,7 @@ func (id *HQ) validateKey() bool {
 
 // setLast40 ...
 func setLast40(in [64]byte) (r [40]byte) {
-	for i := 0; i < 40; i++ {
+	for i := range 40 {
 		r[i] = in[64-49+i]
 	}
 	return r

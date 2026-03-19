@@ -16,7 +16,7 @@ func HashF(input *[8192]byte, length, counter uint64, flags uint32, key *[8]uint
 		bflags := flags | consts.Flag_ChunkStart
 		start := consts.ChunkLen * i
 
-		for n := uint64(0); n < 16; n++ {
+		for n := range uint64(16) {
 			if n == 15 {
 				bflags |= consts.Flag_ChunkEnd
 			}

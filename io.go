@@ -253,7 +253,7 @@ func walk(path string, chanNames chan string) {
 func fastWalk(path string, chanNames chan string, threads int) {
 	bg := sync.WaitGroup{}
 	chanDir := make(chan string, 10000)
-	for i := 0; i < threads; i++ {
+	for range threads {
 		go func() {
 			for path := range chanDir {
 				list, err := os.ReadDir(path)

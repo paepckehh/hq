@@ -46,7 +46,7 @@ func (c *Config) bench() bool {
 // sphingsSignBench ...
 func sphincsSignBench(id *HQ) time.Duration {
 	t1 := time.Now()
-	for i := 0; i < _benchSlow; i++ {
+	for range _benchSlow {
 		_ = sphincs.Sign(id.IO.PRIVKEY, id.IO.MSG)
 		outPlain("..........")
 	}
@@ -56,7 +56,7 @@ func sphincsSignBench(id *HQ) time.Duration {
 // sphingsVerifyBench ...
 func sphincsVerifyBench(id *HQ) time.Duration {
 	t1 := time.Now()
-	for i := 0; i < _benchFast; i++ {
+	for range _benchFast {
 		_ = sphincs.Verify(id.ID.KEY, id.IO.MSG, id.IO.SIG)
 		outPlain(".")
 	}
@@ -66,7 +66,7 @@ func sphincsVerifyBench(id *HQ) time.Duration {
 // cubeTagBench ...
 func cubeTagBench(id *HQ) time.Duration {
 	t1 := time.Now()
-	for i := 0; i < _benchFast; i++ {
+	for range _benchFast {
 		id.genTag()
 		outPlain(".")
 	}
@@ -76,7 +76,7 @@ func cubeTagBench(id *HQ) time.Duration {
 // cubeUnlockBench ...
 func cubeUnlockBench(id *HQ) time.Duration {
 	t1 := time.Now()
-	for i := 0; i < _benchSlow; i++ {
+	for range _benchSlow {
 		_ = cubetoken.Generate(&cubetoken.Config{
 			Progress:     true,
 			ForceNoColor: _forceNoColor,

@@ -3,6 +3,7 @@ package hq
 import (
 	"io"
 	"os"
+	"slices"
 	"sync"
 	"time"
 )
@@ -16,11 +17,9 @@ func (c *Config) dirVerify() bool {
 	id.IO.FileName += _extSignature
 	id.IO.Silent = c.Silent
 	var waitTotals sync.WaitGroup
-	waitTotals.Add(1)
-	go func() {
+	waitTotals.Go(func() {
 		id.IO.FilesTotal, id.IO.FilesFail, id.IO.FilesNew = verifyMap(id)
-		waitTotals.Done()
-	}()
+	})
 	id.parseSig(c)
 	id.IO.ReportValid = false
 	sigState := id.validateSig()
@@ -79,13 +78,11 @@ func verifyMap(id *HQ) (filesTotal, filesFail, filesNew uint64) {
 
 	// start thread to manage [non-blocking] display output
 	chanDisplay := make(chan string, 10)
-	waitDisplay.Add(1)
-	go func() {
+	waitDisplay.Go(func() {
 		for t := range chanDisplay {
 			out(t)
 		}
-		waitDisplay.Done()
-	}()
+	})
 
 	// start checksum calc worker, read from chanFeed, push to out channel
 	for i := 0; i < id.IO.CPU; i++ {
@@ -234,13 +231,7 @@ func verifyMap(id *HQ) (filesTotal, filesFail, filesNew uint64) {
 		var totalNew uint64
 		current := <-chanCurrent
 		for _, found := range current {
-			hit := false
-			for _, item := range foundlist {
-				if item == found {
-					hit = true
-					break
-				}
-			}
+			hit := slices.Contains(foundlist, found)
 			if hit {
 				continue
 			}
