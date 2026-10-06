@@ -34,5 +34,5 @@ paepcke.de/codereview v0.1.54 h1:hFodnS5KTPu7UOv8RGr5AVwsN3iuVRus8z3lkKsh7aY=
 paepcke.de/codereview v0.1.54/go.mod h1:3bMkPgU4elZiAQPS/PuZymqs+Kq7j0NyCaI7uoBp8lo=
 paepcke.de/signify v0.1.28 h1:W/HtRKrUQftT3NSsVcgn0PRg9mdMX0lXiRLuyUfyZrs=
 paepcke.de/signify v0.1.28/go.mod h1:eFiiM0EuoDwGV2/z4zgXp0b1FLfyc/A5Zo6IQmxjYEY=
-paepcke.de/sphincs v0.1.28 h1:6lzBUKBs/i6GwWXwRXbcePqBc0KhESpZwUZivItkt1Q=
-paepcke.de/sphincs v0.1.28/go.mod h1:zFffyRgHnpKLAYVGztsqeA54RILXIDSFIIFTyuH80NA=
+paepcke.de/sphincs v0.1.29 h1:WMwcaC8gR3o7w+XtDv2+IPO3qBvsRha+Uc0u4aKrQHA=
+paepcke.de/sphincs v0.1.29/go.mod h1:gaTD3AnyQ0G2N3NeJ2evgaFFMjR900ZUO/rmloqg/io=
