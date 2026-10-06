@@ -1,22 +1,21 @@
 module paepcke.de/hq
 
-go 1.26.1
+go 1.27.1
 
 require (
 	github.com/klauspost/compress v1.20.1
 	github.com/klauspost/cpuid/v2 v2.4.0
 	golang.org/x/crypto v0.57.0
 	golang.org/x/term v0.46.0
-	paepcke.de/codereview v0.1.53
+	paepcke.de/codereview v0.1.54
 	paepcke.de/signify v0.1.28
 	paepcke.de/sphincs v0.1.28
 )
 
 require (
-	github.com/google/go-cmp v0.7.0 // indirect
 	github.com/zeebo/blake3 v0.2.4 // indirect
 	golang.org/x/sys v0.48.0 // indirect
-	golang.org/x/tools v0.38.0 // indirect
-	mvdan.cc/gofumpt v0.9.2 // indirect
-	mvdan.cc/sh/v3 v3.12.0 // indirect
+	golang.org/x/tools v0.49.0 // indirect
+	mvdan.cc/gofumpt v0.12.0 // indirect
+	mvdan.cc/sh/v3 v3.14.1 // indirect
 )
