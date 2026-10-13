@@ -6,7 +6,7 @@ require (
 	github.com/klauspost/compress v1.20.1
 	github.com/klauspost/cpuid/v2 v2.4.0
 	golang.org/x/crypto v0.57.0
-	golang.org/x/term v0.46.0
+	golang.org/x/term v0.47.0
 	paepcke.de/codereview v0.1.54
 	paepcke.de/signify v0.1.29
 	paepcke.de/sphincs v0.1.29
@@ -14,7 +14,7 @@ require (
 
 require (
 	github.com/zeebo/blake3 v0.2.4 // indirect
-	golang.org/x/sys v0.48.0 // indirect
+	golang.org/x/sys v0.49.0 // indirect
 	golang.org/x/tools v0.49.0 // indirect
 	mvdan.cc/gofumpt v0.12.0 // indirect
 	mvdan.cc/sh/v3 v3.14.1 // indirect
