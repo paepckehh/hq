@@ -1,6 +1,6 @@
 module paepcke.de/hq
 
-go 1.27.1
+go 1.27.2
 
 require (
 	github.com/klauspost/compress v1.20.1
@@ -8,7 +8,7 @@ require (
 	golang.org/x/crypto v0.58.0
 	golang.org/x/term v0.47.0
 	paepcke.de/codereview v0.1.54
-	paepcke.de/signify v0.1.29
+	paepcke.de/signify v0.1.40
 	paepcke.de/sphincs v0.1.29
 )
 
