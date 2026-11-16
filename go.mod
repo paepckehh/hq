@@ -5,7 +5,7 @@ go 1.27.2
 require (
 	github.com/klauspost/compress v1.20.4
 	github.com/klauspost/cpuid/v2 v2.4.2
-	golang.org/x/crypto v0.58.0
+	golang.org/x/crypto v0.59.0
 	golang.org/x/term v0.48.0
 	paepcke.de/codereview v0.1.54
 	paepcke.de/signify v0.1.40
